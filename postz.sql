@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2024 at 11:09 PM
+-- Generation Time: May 01, 2024 at 03:13 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `posts` (
-  `userid` int(16) NOT NULL,
+  `userid` varchar(16) NOT NULL,
   `postid` int(16) NOT NULL,
   `title` varchar(32) NOT NULL,
   `content` text NOT NULL,
-  `solved` int(1) NOT NULL,
+  `solved` int(1) NOT NULL DEFAULT 0,
   `timest` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -41,11 +41,58 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`userid`, `postid`, `title`, `content`, `solved`, `timest`) VALUES
-(55, 10, 'my first post', 'here is what i want to say', 0, '2024-04-30 19:49:41'),
-(55, 11, 'post number two', 'computer science 365', 0, '2024-04-30 19:50:06'),
-(0, 0, 'post number three', 'this one im submitting in the page', 0, '2024-04-30 19:55:05'),
-(0, 0, 'post number four', 'working on redirect', 0, '2024-04-30 19:55:32'),
-(0, 0, 'i need help', 'my computer wont work somebody fix pls', 0, '2024-04-30 20:58:20');
+('user1', 17, 'help please', 'someone fix my computer pls', 0, '2024-05-01 12:38:56'),
+('user15', 18, 'mee too', 'i also need help', 0, '2024-05-01 12:39:08');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `replies`
+--
+
+CREATE TABLE `replies` (
+  `userid` varchar(16) NOT NULL,
+  `postid` int(16) NOT NULL,
+  `title` text NOT NULL,
+  `content` text NOT NULL,
+  `timest` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `replies`
+--
+
+INSERT INTO `replies` (`userid`, `postid`, `title`, `content`, `timest`) VALUES
+('1', 17, 'idk', 'i dont know if i can', '2024-05-01 13:03:59'),
+('', 17, '', 'i think i can', '2024-05-01 13:07:28'),
+('', 17, '', 'mee too', '2024-05-01 13:10:07'),
+('', 18, '', 'good luck with that', '2024-05-01 13:12:48');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`postid`);
+
+--
+-- Indexes for table `replies`
+--
+ALTER TABLE `replies`
+  ADD PRIMARY KEY (`timest`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `postid` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

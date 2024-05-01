@@ -19,9 +19,10 @@ $result = $db->query($query);
 
 // Display posts
 while ($row = $result->fetch_assoc()) {
-    echo "<h2>{$row['title']}</h2>";
+    echo "<h2><a href='reply.php?postid={$row['postid']}'>{$row['title']}</a></h2>";
+    echo "<p>by: {$row['userid']} at {$row['timest']}</p>";
     echo "<p>{$row['content']}</p>";
-    echo "<a href='reply.php?postid={$row['postid']}'>Reply</a>";
+    //echo "<a href='reply.php?postid={$row['postid']}'>Reply</a>";
 }
 /*
 <?php
