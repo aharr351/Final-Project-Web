@@ -19,7 +19,9 @@ $result = $db->query($query);
 // Display posts
 while ($row = $result->fetch_assoc()) {
     echo "<h2>{$row['title']}</h2>";
+    echo "<p>by: {$row['userid']} at {$row['timest']}</p>";
     echo "<p>{$row['content']}</p>";
+    echo "<p><br></p>";
 }
 ?>
 
@@ -30,7 +32,7 @@ $result = $db->query($query);
 
 // Display replies
 while ($row = $result->fetch_assoc()) {
-    echo "<p>reply: {$row['content']}</p>";
+    echo "<p>{$row['content']} <br>{$row['userid']} at {$row['timest']}</p>";
 }
 ?>
     <form action="submit_reply.php" method="post">

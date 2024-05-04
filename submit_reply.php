@@ -1,4 +1,14 @@
 <?php
+
+session_start();
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true)
+{
+    $user = $_SESSION["name"];
+}
+else{
+    $user = "Anonymous";
+}
+
 // Connect to your MySQL database
 $db = new mysqli("localhost", "root", "", "postz");
 
@@ -8,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $reply_content = $_POST["reply_content"];
 
     // Insert reply data into the 'replies' table
-    $query = "INSERT INTO replies (postid, content) VALUES ('$postid', '$reply_content')";
+    $query = "INSERT INTO replies (userid, postid, content) VALUES ('$user', '$postid', '$reply_content')";
     $db->query($query);
 
     // Redirect back to the post page

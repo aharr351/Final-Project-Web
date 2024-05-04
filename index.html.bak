@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post Board</title>
+</head>
+<body>
+    <h1>Post Board</h1>
+    <form action="submit_post.php" method="post">
+        <input type="text" name="post_title" placeholder="Post Title" required>
+        <textarea name="post_content" placeholder="Write your post..." required></textarea>
+        <input type="submit" value="Submit Post">
+    </form>
+</body>
+</html>

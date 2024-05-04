@@ -1,4 +1,19 @@
 <h1>Post Board</h1>
+<?php
+session_start();
+
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true)
+{
+    echo "logged in as ";
+    echo $_SESSION["name"];
+    echo "<p><a href='logout.php'>logout</a></p>";
+}
+else{
+    echo "<p><a href='login.php'>login</a></p>";
+}
+
+?>
+
 
     <form action="submit_post.php" method="post">
         <input type="text" name="post_title" placeholder="Post Title" required>
@@ -8,13 +23,15 @@
 
 
 <?php
+
+
 // Connect to your MySQL database
 $db = new mysqli("localhost", "root", "", "postz");
 
 
 
 // Retrieve posts from the 'posts' table
-$query = "SELECT * FROM posts";
+$query = "SELECT * FROM posts WHERE solved=0";
 $result = $db->query($query);
 
 // Display posts
