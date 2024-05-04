@@ -4,6 +4,7 @@
     <title>Reply to Post</title>
 </head>
 <body>
+    <p><a href='index.php'>home</a></p>
     <h1>Reply to Post</h1>
     <?php
 $postid = $_GET['postid'];
@@ -34,6 +35,9 @@ $result = $db->query($query);
 while ($row = $result->fetch_assoc()) {
     echo "<p>{$row['content']} <br>{$row['userid']} at {$row['timest']}</p>";
 }
+
+
+
 ?>
     <form action="submit_reply.php" method="post">
         <input type="hidden" name="postid" value="<?php echo $_GET['postid']; ?>">

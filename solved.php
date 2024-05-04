@@ -12,18 +12,6 @@ else{
     echo "<p><a href='login.php'>login</a></p>";
 }
 
-?>
-
-
-    <form action="submit_post.php" method="post">
-        <input type="text" name="post_title" placeholder="Post Title" required>
-        <textarea name="post_content" placeholder="Write your post..." required></textarea>
-        <input type="submit" value="Submit Post">
-    </form>
-
-
-<?php
-
 
 // Connect to your MySQL database
 $db = new mysqli("localhost", "root", "", "postz");
@@ -31,12 +19,12 @@ $db = new mysqli("localhost", "root", "", "postz");
 
 
 // Retrieve posts from the 'posts' table
-$query = "SELECT * FROM posts WHERE solved=0";
+$query = "SELECT * FROM posts WHERE solved=1";
 $result = $db->query($query);
 
 // Display posts
-echo "<h2> Viewing Unsolved Posts: </h2>";
-echo "<p><a href='solved.php'>Looking for solved posts?</a></p>";
+echo "<h2> Previously Solved Posts: </h2>";
+echo "<p><a href='index.php'>Looking for unsolved posts?</a></p>";
 while ($row = $result->fetch_assoc()) {
     echo "<h2><a href='reply.php?postid={$row['postid']}'>{$row['title']}</a></h2>";
     echo "<p>by: {$row['userid']} at {$row['timest']}</p>";
