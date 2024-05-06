@@ -1,0 +1,36 @@
+body{
+    background-color: rgb(241, 241, 248);
+    font-size: 20pt;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+h1{
+    text-align: center;
+    font-size: 50pt;
+    background-color: rgb(110, 110, 161);
+}
+h2{
+    color:rgb(134, 116, 134);
+    font-size: 30pt;
+    text-decoration: underline;
+}
+h3{
+    background-color: rgb(224, 207, 224);
+}
+button{
+    background-color: rgb(43, 43, 66);
+    color:white;
+    width:100px;
+    height: 50px;
+    font-size: 20pt;
+    border-radius: 15px;
+}
+button:hover{
+    background-color: rgb(201, 182, 201);
+    color:black;
+}
+input[type="submit"]{
+    background-color: purple;
+    color:white;
+    width:40pt;
+    height: 15pt;
+}

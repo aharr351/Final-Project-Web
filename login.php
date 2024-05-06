@@ -1,3 +1,5 @@
+
+
 <?php
 require_once "accounts_database.php";
 
@@ -8,6 +10,7 @@ $isAdmin = 0;
 // Check to see if there is a current session and the user is logged in
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
     header("location: /Final-Project-Web");
+
 }
 
 //Only execute when the submit button is pressed
@@ -32,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
 		    if(mysqli_stmt_execute($stmt)) {
 			    mysqli_stmt_store_result($stmt);
-            
+                header('location: /Final-Project-Web/index.php');
                 // If the user is not in the database go to register
                 // Else determine if their password is correct
 			    if(mysqli_stmt_num_rows($stmt) == 0) {
@@ -69,7 +72,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 
 <body>
-<?php>
+<script>
+    
+function homepage(){
+    window.location.href = "http://localhost/Final-Project-Web/";
+    }
+</script>
+<?php?>
 
     <div class="wrapper">
         <h2>Login</h2>
@@ -86,7 +95,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
+                <input type="submit" onclick="document.location='index.php'" class="btn btn-primary" value="Submit">
                 <input type="reset" class="btn btn-secondary ml-2" value="Reset">
             </div>
             <p>Don't have an account? <a href="register.php">Register here</a>.</p>

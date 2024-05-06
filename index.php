@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reply to Post</title>
+    <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
 <h1>Post Board</h1>
 <?php
 session_start();
@@ -43,8 +50,10 @@ while ($row = $result->fetch_assoc()) {
     echo "<p>{$row['content']}</p>";
     //echo "<a href='reply.php?postid={$row['postid']}'>Reply</a>";
 }
-/*
+?>
 <?php
+/*
+
 // Retrieve replies associated with each post
 $query = "SELECT * FROM replies WHERE post_id = ?";
 $stmt = $db->prepare($query);
@@ -58,5 +67,6 @@ while ($row = $result->fetch_assoc()) {
 */
 ?>
 
-
+</body>
+</html>
 
