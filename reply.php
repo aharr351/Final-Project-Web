@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Reply to Post</title>
+    <title>Viewing Post</title>
     <link rel="stylesheet" href="postStyle.css">
 </head>
 <body>

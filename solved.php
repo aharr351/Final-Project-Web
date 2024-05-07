@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Reply to Post</title>
+    <title>Post Board - Solved</title>
     <link rel="stylesheet" href="homepage.css">
 </head>
 <body>
