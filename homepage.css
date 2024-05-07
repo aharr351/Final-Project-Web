@@ -8,3 +8,43 @@ h1{
     font-size: 50pt;
     background-color: rgb(110, 110, 161);
 }
+h2{
+    color:darkblue;
+    font-size:25pt;
+}
+.container{
+    display:flex;
+    flex-direction: row;
+    border:1px solid purple;
+    justify-content: space-around;
+}
+.subjectSelected{
+    color:white;
+    background-color: purple;
+    border:1px solid blue;
+}
+.postQuestion{
+    border:1px rgb(62, 47, 62);
+}
+select{
+    width:150pt;
+    height:30pt;
+    font-size: 15pt;
+}
+input[type="text"]{
+    width:300pt;
+    height:30pt;
+    font-size: 15pt;
+}
+textarea{
+    width:500pt;
+    height:60pt;
+    font-size: 15pt;
+}
+input[type="submit"]{
+    background-color: purple;
+    color:white;
+    width:150pt;
+    height: 30pt;
+    font-size:15pt;
+}

@@ -10,9 +10,10 @@
 
     
 <?php
+session_start();
+
 $postid = $_GET['postid'];
 $db = new mysqli("localhost", "root", "", "postz");
-
 
 
 // Retrieve posts from the 'posts' table
@@ -22,6 +23,9 @@ $result = $db->query($query);
 
 // Display posts
 while ($row = $result->fetch_assoc()) {
+
+    $postUser = $row['userid'];
+
     echo "<h2>{$row['title']}</h2>";
     echo "<p>by: {$row['userid']} at {$row['timest']}</p>";
     echo "<p>{$row['content']}</p>";
@@ -56,12 +60,30 @@ while ($row = $resultSolved->fetch_assoc()) {
     <textarea name="reply_content" placeholder="Write your reply..." required></textarea><br>
     <input type="submit" value="Submit Reply"><br>
     </form>
-<h2>If your Problem is Solved Please Mark Here:</h2>
+
 <!--Checkbox for marking when post is complete-->
-<form action="submittedSolved.php" method="POST">
-    <input type="checkbox" id="solved" name="solved" value="<?php echo $_GET['postid']; ?>">
-    <label for="solved">Mark this as solved if you found your solution</label><br>
-    <input type="submit">
-</form>
+<?php
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true)
+{
+    $user = $_SESSION["name"];
+}else{
+    $user = "Anonymous";
+}
+?>
+
+<?php if($postUser == $user){
+ ?> <div class="hideSolved">
+    <h2>If your Problem is Solved Please Mark Here:</h2>
+    <form action="submittedSolved.php" method="POST">
+        <input type="checkbox" id="solved" name="solved" value="<?php echo $_GET['postid']; ?>">
+        <label for="solved">Mark this as solved if you found your solution</label><br>
+        <input type="submit">
+    </form>
+    </div><?php
+}else{
+}?>
+
+
+
 </body>
 </html>
