@@ -65,21 +65,7 @@ while ($row = $result->fetch_assoc()) {
     //echo "<a href='reply.php?postid={$row['postid']}'>Reply</a>";
 }
 ?>
-<?php
-/*
 
-// Retrieve replies associated with each post
-$query = "SELECT * FROM replies WHERE post_id = ?";
-$stmt = $db->prepare($query);
-$stmt->bind_param("i", $post_id);
-
-// Display replies
-while ($row = $result->fetch_assoc()) {
-    echo "<p>{$row['content']}</p>";
-}
-?>
-*/
-?>
 
 </body>
 </html>

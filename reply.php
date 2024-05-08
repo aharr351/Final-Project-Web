@@ -42,16 +42,6 @@ $result = $db->query($query);
 while ($row = $result->fetch_assoc()) {
     echo "<p>{$row['content']} <br>{$row['userid']} at {$row['timest']}</p>";
 }
-/*
-//Let user mark as solved
-$querySolved = "SELECT solved FROM posts WHERE postid = $postid";
-$resultSolved = $db->query($querySolved);
-
-//Display the solved number
-while ($row = $resultSolved->fetch_assoc()) {
-    echo "<p>{$row['solved']}</p>";
-}
-*/
 
 ?>
 <h2>Enter A Reply Here</h2>

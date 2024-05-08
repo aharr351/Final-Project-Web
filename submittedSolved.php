@@ -11,8 +11,6 @@ $conn = new mysqli("localhost", "root", "", "postz");
 
 
 //Let user mark as solved
-//$querySolved = "SELECT solved FROM posts WHERE postid = $postid";
-//$resultSolved = $db->query($querySolved);
 $sql = "UPDATE posts SET solved='1' WHERE postid=$postid";
 echo "<h1>For Post:".$postid."</h1><br>";
 //Display the solved number
